@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: zycore-backend
+    runtime: python
+    plan: free
+    buildCommand: |
+      pip install --upgrade pip
+      pip install -r requirements.txt
+    startCommand: |
+      python -m uvicorn backend:app --host=0.0.0.0 --port=$PORT
+    envVars:
+      - key: GENAI_API_KEY
+        value: AIzaSyAN_0mCiVl5kA6rShQRgzFENpp1fqv3ibg
+      - key: OCR_API_KEY
+        value: K89947296688957
